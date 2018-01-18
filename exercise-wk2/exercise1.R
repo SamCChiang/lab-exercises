@@ -1,3 +1,6 @@
+library(stringr)
+
+
 ## Part 1: Debugging
 
 my.num <- 6
@@ -30,9 +33,23 @@ said.the.famous <- paste(my.line, " - ", initial)
 
 # Make a vector and use typeof to check what type R considers it to be
 
+typeof(c("dogs", "cats", "ferrets"))
+typeof(c(1, 4, 6)) # double
+typeof(c(1, "dogs")) # character
+
 # Write a function `CompareLength` that takes in 2 vectors, and returns the sentence:
 # "The difference in lengths is N"
 
+CompareLength <- function(v1, v2) {
+  diff <- abs((length(v1) - length(v2)))
+  phrase <- paste("The difference in lengths is", diff)
+  return(phrase)
+}
+
+v1 <- c(1, 2, 3, 4, 5)
+v2 <- c(1, 2, 3)
+
+print(CompareLength(v2, v1))
 
 # Pass two vectors of different length to your `CompareLength` function
 
